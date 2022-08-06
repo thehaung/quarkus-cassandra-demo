@@ -29,6 +29,12 @@ public class FruitResource {
         return fruitService.getAll().stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
+    @GET
+    @Path("{name}")
+    public FruitDto getOne(@PathParam("name") String name) {
+        return convertToDto(fruitService.findOne(name));
+    }
+
     @POST
     public void add(FruitDto fruit) {
         fruitService.save(convertFromDto(fruit));

@@ -6,8 +6,6 @@ import com.datastax.oss.driver.api.mapper.annotations.Select;
 import com.datastax.oss.driver.api.mapper.annotations.Update;
 import vn.thehaung.model.Fruit;
 
-import javax.inject.Named;
-
 /**
  * @author : Hau Nguyen
  * @from : 8/6/22
@@ -21,4 +19,7 @@ public interface FruitDao {
 
     @Select
     PagingIterable<Fruit> findAll();
+
+    @Select
+    Fruit findOne(String name);
 }
